@@ -457,6 +457,10 @@ function! vimtex#syntax#core#init_rules() abort " {{{1
         \ start="\\else\>"  end="\\fi\>"
         \ contained contains=texCommentConditionals
 
+  " turn on the comment highlight for user defined environments
+  syntax region texComment matchgroup=texCmd start="\\begin{scrap}" end="\\end{scrap}"
+  syntax region texComment matchgroup=texCmd start="\\begin{wip}" end="\\end{wip}"
+
   " }}}2
   " {{{2 Zone: Verbatim
 
