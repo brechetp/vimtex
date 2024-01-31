@@ -103,6 +103,11 @@ function! vimtex#util#is_win() abort " {{{1
 endfunction
 
 " }}}1
+function! vimtex#util#win_clean_output(lines) abort " {{{1
+  return map(a:lines, {_, x -> substitute(x, '\r$', '', '')})
+endfunction
+
+" }}}1
 function! vimtex#util#extend_recursive(dict1, dict2, ...) abort " {{{1
   let l:option = a:0 > 0 ? a:1 : 'force'
   if index(['force', 'keep', 'error'], l:option) < 0
